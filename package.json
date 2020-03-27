@@ -11,6 +11,9 @@
   "author": "kevin tran",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
     "html-webpack-plugin": "^4.0.2",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
