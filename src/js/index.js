@@ -1,14 +1,27 @@
-import axios from 'axios';
+import Search from './models/Search';
 
-async function getResults(query){
-    const proxy = 'https://cors-anywhere.herokuapp.com/';
-    try{
-    const res = await axios(`${proxy}https://forkify-api.herokuapp.com/api/search?q=${query}`);
-    const recipes = res.data.recipes;
-    console.log(recipes);        
-    } catch(error){
-        alert(alert);
+const state = {};
+
+const controlSearch = async () =>  {
+    const query = 'pizza';
+
+    if (query){
+        state.search = new Search(query);
+
+        await state.search.getResults();
+
+        console.log(state.search.recipes);
     }
 
+
 }
-getResults('pizza');
+
+document.querySelector('.search').addEventListener('submit', e=> {
+    e.preventDefault();
+    controlSearch();
+});
+
+
+
+
+
