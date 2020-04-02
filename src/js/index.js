@@ -52,17 +52,24 @@ const controlRecipe = async ()=>{
     console.log(id);
     
     if(id){
+        
+        recipeView.clearRecipe();
+        renderLoader(elements.recipe);
+
         state.recipe = new Recipe(id);
 
-        try{
+     
             await state.recipe.getRecipe();
+            console.log(state.recipe.ingredients);
             state.recipe.parseIngredients();
+
             state.recipe.calcTime();
             state.recipe.calcServings();
-            console.log(state.recipe);
-        } catch(err){
-            alert('Error processing recipe!');
-        }
+
+            clearLoader();
+
+            recipeView.renderRecipe(state.recipe);
+        
        
     }
 };
