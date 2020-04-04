@@ -9,7 +9,6 @@ import * as likesView from './views/likesView';
 import {elements, renderLoader, clearLoader} from './views/base';
 
 const state = {};
-window.state = state;
 
 
 const controlSearch = async () =>  {
@@ -55,8 +54,7 @@ elements.searchResPages.addEventListener('click', e=> {
 
 const controlRecipe = async ()=>{
     const id = window.location.hash.replace('#','');
-    console.log(id);
-    
+
     if(id){
         
         recipeView.clearRecipe();
@@ -165,6 +163,4 @@ elements.recipe.addEventListener('click', e=>{
     }
 
 });
-
-window.l = new List();
 
